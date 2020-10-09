@@ -1,4 +1,5 @@
 const express = require('express')  
+require('dotenv').config()
 const mongoose = require('mongoose')
 const path = require('path')
 const morgan = require('morgan')
@@ -7,6 +8,7 @@ const helmet = require('helmet')
 const connectDB = require('./config/db')
 const myRoutes = require('./routes/url')
 const publicPath = path.join(__dirname, './public' )
+
 
 const app = express()
 const port = process.env.PORT || 4000
