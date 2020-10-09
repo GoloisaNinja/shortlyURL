@@ -1,10 +1,12 @@
 const mongoose = require('mongoose')
 const config = require('config')
-const devDB = config.get('MONGODB_LOCAL')
+require('dotenv').config()
+//const devDB = config.get('MONGODB_LOCAL')
+const prodDB = MONGODB_URL
 
 const connectDB = async () => {
     try {
-        await mongoose.connect(devDB, {
+        await mongoose.connect(prodDB, {
             useNewUrlParser: true,
             useCreateIndex: true,
             useFindAndModify: false,
