@@ -14,14 +14,14 @@ router.get('/:id', async (req, res) => {
     try {
         const redirectUrl = await myUrl.findOne({ slug })
         if(!redirectUrl) {
-            return res.redirect(`/?error=${slug} not found`)
+            return res.status(404).json({ msg: `${slug} is not an active redirect...`})
         }
         //res.redirect(url)
         console.log(redirectUrl.url)
         res.redirect(redirectUrl.url)
         
     } catch (error) {
-        res.redirect(`/?error=Link not found`)
+        res.status(404).json({ msg: error.message })
     }
     
 })
