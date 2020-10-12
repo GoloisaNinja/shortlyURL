@@ -32,7 +32,10 @@ const app = new Vue({
                 this.respUrl = null
                 this.respSlug = null
                 this.outcome = null
-                this.existsorerror = 'url required - entered url\nwas empty or bad...'
+                serverResp.msg.includes('Slug') ?
+                    this.existsorerror = serverResp.msg :
+                    this.existsorerror = 'valid url required - \nentered url was bad or empty'
+                
             } else {
                 this.existsorerror = null
                 this.respUrl = serverResp.url
