@@ -13,24 +13,24 @@ router.get('/:id', async (req, res) => {
     const { id: slug } = req.params
     try {
         const redirectUrl = await myUrl.findOne({ slug })
-        if(!redirectUrl) {
-            return res.status(404).json({ msg: `${slug} is not an active redirect...`})
+        if(redirectUrl) {
+            console.log(redirectUrl.url)
+            return res.redirect(redirectUrl.url)
         }
-        //res.redirect(url)
-        console.log(redirectUrl.url)
-        res.redirect(redirectUrl.url)
-        
+        res.redirect(`/?error=${slug} not found`)
     } catch (error) {
-        res.status(404).json({ msg: error.message })
+        res.status(500).json({ msg: error.message })
     }
     
 })
 
 router.post('/url', async (req, res) => {
     // TODO: create a short url
-    
+    const data = await req.body
+    console.log(data)
     try {
         let { slug, url } = req.body
+        console.log(req.body)
         if (!slug) {
             slug = nanoid(5)
         } else {
@@ -44,7 +44,7 @@ router.post('/url', async (req, res) => {
         url
     })
         await newURL.save()
-        res.status(200).send(newURL)
+        res.status(200).json(newURL)
     } catch (error) {
         res.status(400).json({ msg: error.message })
     }

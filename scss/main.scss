@@ -1,0 +1,237 @@
+$color-form-dark-gray: #363636;
+
+* {
+    padding: 0;
+    margin: 0;
+    border-style: inherit;
+}
+
+a {
+    text-decoration: none;
+    color: #1abd48;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    border-style: border-box;
+    font-family: 'Red Hat Text', sans-serif;
+    padding: 3rem;
+    background-color: #5c5c5c;
+}
+
+// details
+
+.container__details {
+    display: flex;
+    flex-direction: column;
+    max-width: 45rem;
+    margin: 0 auto;
+
+}
+.container__details-text > p {
+    color: white;
+    font-size: 2rem;
+    padding-top: 1rem;
+}
+
+.details-text--span {
+    font-weight: 400;
+    font-size: 1.5rem;
+}
+
+.details-text--link {
+    text-decoration: none;
+    color: #1abd48;
+}
+
+// form
+
+
+
+.container__urlForm {
+    max-width: 45rem;
+    margin: 0 auto;
+}
+
+.urlForm {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    justify-content: center;
+}
+.urlForm__label {
+    color: white;
+    font-weight: 500;
+    font-size: 3.5rem;
+    padding: 0.60rem 0;
+}
+
+.urlForm__label-sub {
+    color: white;
+    font-weight: 400;
+    font-size: 1.5rem;
+    padding: 0.60rem 1rem;
+}
+.urlForm__slug, .urlForm__url {
+    background-color: $color-form-dark-gray;
+    min-height: 4rem;
+    border: none;
+    border-bottom: 0.3rem solid darken($color-form-dark-gray, 10%);
+    font-size: 2rem;
+    color: white;  
+    padding-left: 1rem;  
+}
+
+.urlForm__button {
+    background: #1abd48;
+    border: none;
+    border-bottom: .3rem solid darken(#1abd48, 15%);
+    color: white;
+    font-weight: 500;
+    font-size: 2rem;
+    margin-top: 2rem;
+    padding: 1.15rem;
+}
+
+.urlForm__button-redirect {
+    background: #ff623b;
+    border: none;
+    border-bottom: .3rem solid darken(#ff623b, 15%);
+    color: white;
+    font-weight: 500;
+    font-size: 2rem;
+    margin-top: 2rem;
+    padding: 1.15rem;
+}
+
+._loading_overlay_wrapper {
+    max-width: 45rem;
+    margin: 0 auto;
+    
+}
+
+._loading_overlay_overlay {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    justify-content: center;
+    
+}
+
+
+// header 
+
+$off-white: #ebebeb;
+$color-white: #eee;
+$light-gray: #ebebeb;
+$dark-gray: #a6a6a6;
+$desktop-breakpoint: 45rem;
+
+.header {
+    height: 75vh;
+    background-image: linear-gradient(
+            to right bottom, 
+            rgba($light-gray, 0.2), 
+            rgba($dark-gray, 0.2)), 
+            url('https://i.imgur.com/8hpDRDO.jpg');
+    background-size: cover;
+    background-position: center;
+    clip-path: polygon(0 0, 100% 0, 100% 70vh, 0 100%);
+    position: relative;
+}
+.header__text-box {
+    position: absolute;
+    top: 33%;
+    left: 52%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.heading-primary {
+    color: $color-white;
+    text-transform: uppercase;
+    backface-visibility: hidden;
+    margin-bottom: 6rem;
+}
+
+.heading-primary--main {
+    display: block;
+    font-size: 4rem;
+    font-weight: 200;
+    letter-spacing: 1.35rem;
+
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+
+    /*  animation-delay: 3s; 
+        animation-iteration-count: 3;
+    */
+}
+
+.heading-primary--sub1 {
+    display: block;
+    font-size: 1.7rem;
+    font-weight: 400;
+    letter-spacing: 1.4rem;
+    padding-bottom: 1.2rem;
+    animation-name: moveInRight;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+}
+.heading-primary--sub2 {
+    display: block;
+    font-size: .75rem;
+    font-weight: 400;
+    letter-spacing: .25rem;
+
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+}
+
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-10rem);
+    }
+
+    80% {
+        transform: translate(1rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(10rem);
+    }
+
+    80% {
+        transform: translate(-1rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@media (min-width: $desktop-breakpoint) {
+    .heading-primary--main {
+        font-size: 5rem;
+        letter-spacing: 1.5rem;
+    }
+    .header {
+        height: 95vh;
+        clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    }
+}

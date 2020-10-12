@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Shortly</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="url shortener ftw">
+        <meta name="keywords" content="HTML, CSS, SCSS, NodeJS, JavaScript, Vue.js">
+        <link rel="icon" type="image/png" href="/images/badlyIcon.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/badlyIcon.png" />
+        <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;500;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="css/main.css" />
+    </head>
+    <body>
+        <header class="header">
+        <div class="header__text-box">
+            <h1 class="heading-primary">
+                <span class="heading-primary--main">
+                shortly URL
+                </span>
+                <span class="heading-primary--sub1">
+                simplify life
+                </span>
+                <span class="heading-primary--sub2">
+                one url at a time
+                </span>
+            </h1>
+        </div>
+        </header>
+    <main id="app">
+        <div class="container__urlForm">
+                <form @submit.prevent="createUrl()" class="urlForm">
+                <label for="slug" class="urlForm__label">enter slug<span class="urlForm__label-sub">(optional)</span></label>
+                <input class="urlForm__slug" v-model="slug" name="slug" id="slug" />
+                <label for="url" class="urlForm__label">enter url</label>
+                <input class="urlForm__slug" v-model="url" name="url" id="url" />
+                <button 
+                    type="submit"
+                    class="urlForm__button" 
+                    >
+                    create
+                </button>
+                </form>
+            </div>
+        <div v-if="existsorerror" class="container__details">
+            <div class="container__details-text">
+                <p>
+                    {{existsorerror}}
+                </p>
+            </div>
+        </div>
+        <div v-if="outcome" class="container__details">
+            <div class="container__details-text">
+                <p>
+                    <span class="details-text--span">outcome:</span> {{outcome}}
+                </p>
+                <p>
+                    <span class="details-text--span">desired slug:</span> {{respSlug}}
+                </p>
+                <p>
+                    <span class="details-text--span">url:</span> {{respUrl}}
+                </p>
+                <p>
+                    <span class="details-text--span">
+                    shortly url is: </span>
+                    <a class="details-text--link" href="http://www.fpd.pw" v-bind:href="respSlug">
+                    www.fpd.pw/{{respSlug}}</a>
+                </p>
+            </div>
+        </div>
+
+    </main>
+    <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>  
+    <script src="app.js"></script>
+    </body>
+</html>
