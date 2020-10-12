@@ -16,7 +16,7 @@
         <div class="header__text-box">
             <h1 class="heading-primary">
                 <span class="heading-primary--main">
-                shortly URL
+                shortly <span class="heading-primary--main-green">URL</span>
                 </span>
                 <span class="heading-primary--sub1">
                 simplify life
@@ -30,9 +30,9 @@
     <main id="app">
         <div class="container__urlForm">
                 <form @submit.prevent="createUrl()" class="urlForm">
-                <label for="slug" class="urlForm__label">enter slug<span class="urlForm__label-sub">(optional)</span></label>
+                <label for="slug" class="urlForm__label">enter <span class="heading-primary--main-green">slug</span><span class="urlForm__label-sub">(optional)</span></label>
                 <input class="urlForm__slug" v-model="slug" name="slug" id="slug" />
-                <label for="url" class="urlForm__label">enter url</label>
+                <label for="url" class="urlForm__label">enter <span class="heading-primary--main-green">url</span></label>
                 <input class="urlForm__slug" v-model="url" name="url" id="url" />
                 <button 
                     type="submit"

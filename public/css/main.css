@@ -5,7 +5,7 @@
 
 a {
   text-decoration: none;
-  color: #1abd48; }
+  color: #5c5c5c; }
 
 html {
   font-size: 62.5%; }
@@ -76,26 +76,6 @@ body {
   margin-top: 2rem;
   padding: 1.15rem; }
 
-.urlForm__button-redirect {
-  background: #ff623b;
-  border: none;
-  border-bottom: 0.3rem solid #ee2f00;
-  color: white;
-  font-weight: 500;
-  font-size: 2rem;
-  margin-top: 2rem;
-  padding: 1.15rem; }
-
-._loading_overlay_wrapper {
-  max-width: 45rem;
-  margin: 0 auto; }
-
-._loading_overlay_overlay {
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-  justify-content: center; }
-
 .header {
   height: 75vh;
   background-image: linear-gradient(to right bottom, rgba(235, 235, 235, 0.2), rgba(166, 166, 166, 0.2)), url("https://i.imgur.com/8hpDRDO.jpg");
@@ -128,6 +108,9 @@ body {
   /*  animation-delay: 3s; 
         animation-iteration-count: 3;
     */ }
+
+.heading-primary--main-green {
+  color: #1abd48; }
 
 .heading-primary--sub1 {
   display: block;

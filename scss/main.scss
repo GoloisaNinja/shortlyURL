@@ -1,4 +1,11 @@
 $color-form-dark-gray: #363636;
+$color-green-main: #1abd48;
+$color-gray-main: #5c5c5c;
+$off-white: #ebebeb;
+$color-white: #eee;
+$light-gray: #ebebeb;
+$dark-gray: #a6a6a6;
+$desktop-breakpoint: 45rem;
 
 * {
     padding: 0;
@@ -8,7 +15,7 @@ $color-form-dark-gray: #363636;
 
 a {
     text-decoration: none;
-    color: #1abd48;
+    color: $color-gray-main;
 }
 
 html {
@@ -19,7 +26,7 @@ body {
     border-style: border-box;
     font-family: 'Red Hat Text', sans-serif;
     padding: 3rem;
-    background-color: #5c5c5c;
+    background-color: $color-gray-main;
 }
 
 // details
@@ -44,12 +51,10 @@ body {
 
 .details-text--link {
     text-decoration: none;
-    color: #1abd48;
+    color: $color-green-main;
 }
 
 // form
-
-
 
 .container__urlForm {
     max-width: 45rem;
@@ -86,49 +91,18 @@ body {
 }
 
 .urlForm__button {
-    background: #1abd48;
+    background: $color-green-main;
     border: none;
-    border-bottom: .3rem solid darken(#1abd48, 15%);
+    border-bottom: .3rem solid darken($color-green-main, 15%);
     color: white;
     font-weight: 500;
     font-size: 2rem;
     margin-top: 2rem;
     padding: 1.15rem;
-}
-
-.urlForm__button-redirect {
-    background: #ff623b;
-    border: none;
-    border-bottom: .3rem solid darken(#ff623b, 15%);
-    color: white;
-    font-weight: 500;
-    font-size: 2rem;
-    margin-top: 2rem;
-    padding: 1.15rem;
-}
-
-._loading_overlay_wrapper {
-    max-width: 45rem;
-    margin: 0 auto;
-    
-}
-
-._loading_overlay_overlay {
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    justify-content: center;
-    
 }
 
 
 // header 
-
-$off-white: #ebebeb;
-$color-white: #eee;
-$light-gray: #ebebeb;
-$dark-gray: #a6a6a6;
-$desktop-breakpoint: 45rem;
 
 .header {
     height: 75vh;
@@ -170,6 +144,9 @@ $desktop-breakpoint: 45rem;
     /*  animation-delay: 3s; 
         animation-iteration-count: 3;
     */
+}
+.heading-primary--main-green {
+    color: $color-green-main;
 }
 
 .heading-primary--sub1 {
