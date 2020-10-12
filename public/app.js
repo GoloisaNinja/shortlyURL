@@ -16,7 +16,6 @@ const app = new Vue({
     },
     methods: {
         async createUrl() {
-            console.log(this.slug, this.url)
             const response = await fetch('/url', {
                 method: 'POST',
                 headers: {

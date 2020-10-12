@@ -17,6 +17,7 @@ const URLSchema = new mongoose.Schema({
     url: {
         type: String,
         trim: true,
+        lowercase: true,
         required: true,
         validate(value) {
             if(!validator.isURL(value, { require_protocol: true, require_valid_protocol: true })) {
