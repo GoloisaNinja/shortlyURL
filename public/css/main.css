@@ -25,7 +25,8 @@ body {
 .container__details-text > p {
   color: white;
   font-size: 2rem;
-  padding-top: 1rem; }
+  padding-top: 1rem;
+  word-break: break-all; }
 
 .details-text--span {
   font-weight: 400;
