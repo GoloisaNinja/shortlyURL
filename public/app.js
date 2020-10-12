@@ -1,8 +1,18 @@
+const reset = function initialState() {
+    return {
+        slug: '',
+        url: '',
+        existsorerror: null,
+        respUrl: null,
+        respSlug: null,
+        outcome: null,
+    }
+}
 
 const app = new Vue({
     el: '#app',
     data: function() {
-        return initialState()
+        return reset()
     },
     methods: {
         async createUrl() {
@@ -19,7 +29,10 @@ const app = new Vue({
             })
             const serverResp = await response.json()
             if(serverResp.msg) {
-                this.existsorerror = serverResp.msg
+                this.respUrl = null
+                this.respSlug = null
+                this.outcome = null
+                this.existsorerror = 'url required - entered url\nwas empty or bad...'
             } else {
                 this.existsorerror = null
                 this.respUrl = serverResp.url
@@ -34,13 +47,4 @@ const app = new Vue({
     }
 })
 
-function initialState() {
-    return {
-        slug: '',
-        url: '',
-        existsorerror: null,
-        respUrl: null,
-        respSlug: null,
-        outcome: null,
-    }
-}
+
