@@ -1,3 +1,4 @@
+
 const reset = function initialState() {
     return {
         slug: '',
@@ -6,6 +7,9 @@ const reset = function initialState() {
         respUrl: null,
         respSlug: null,
         outcome: null,
+        searchfor: null,
+        matches: [],
+        searchOutcome: null,
     }
 }
 
@@ -45,6 +49,25 @@ const app = new Vue({
             this.slug = ''
             this.url = ''
     
+        },
+        async search() {
+            const response = await fetch(`/search/${this.searchfor}`, {
+                method: 'GET',
+                headers: {
+                    'content-type': 'application.json',
+                }
+            })
+            const serverResp = await response.json()
+            console.log(serverResp)
+            if(serverResp.msg) {
+                this.searchOutcome = serverResp.msg
+                this.matches = []
+            } else {
+                this.searchOutcome = 'Success!'
+                this.matches = serverResp
+            }
+
+            this.searchfor = ''
         }
     }
 })

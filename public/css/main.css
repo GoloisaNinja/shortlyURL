@@ -7,6 +7,12 @@ a {
   text-decoration: none;
   color: #5c5c5c; }
 
+.table__link {
+  color: white;
+  text-decoration: none;
+  border: none;
+}
+
 html {
   font-size: 62.5%; }
 
@@ -26,8 +32,12 @@ body {
   color: white;
   font-size: 2rem;
   padding-top: 1rem;
-  word-break: break-all; }
+  word-break: break-all; 
+}
 
+.border-test {
+  border-top: 2px solid black;
+}
 .details-text--span {
   font-weight: 400;
   font-size: 1.5rem; }
@@ -46,6 +56,23 @@ body {
   margin: 0;
   justify-content: center; }
 
+.urlForm-search {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  justify-content: center; 
+}
+
+.urlForm__button-search {
+  background: #1abd48;
+  border: none;
+  border-bottom: 0.3rem solid #117a2e;
+  color: white;
+  font-weight: 500;
+  font-size: 2rem;
+  margin-top: 2rem;
+  padding: 1.15rem; }
+
 .urlForm__label {
   color: white;
   font-weight: 500;
@@ -61,11 +88,14 @@ body {
 .urlForm__slug, .urlForm__url {
   background-color: #363636;
   min-height: 4rem;
+  max-height: 4rem;
   border: none;
   border-bottom: 0.3rem solid #1d1d1d;
   font-size: 2rem;
   color: white;
-  padding-left: 1rem; }
+  padding-left: 1rem; 
+  flex-grow: 1;
+}
 
 .urlForm__button {
   background: #1abd48;
@@ -132,6 +162,30 @@ body {
   animation-duration: 1s;
   animation-timing-function: ease-out; }
 
+.table__search {
+  color: white;
+  font-size: 1.5rem;
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+}
+th, tr, td {
+  border: 3px solid #1abd48;
+  border-collapse: collapse;
+  padding: 1rem;
+}
+th {
+  background-color: #1abd48;
+  font-size: 1.75rem;
+}
+.table__search-data-url {
+  word-break: break-all;
+}
+td {
+  background-color: #363636;
+}
+
 @keyframes moveInLeft {
   0% {
     opacity: 0;
@@ -158,4 +212,14 @@ body {
     letter-spacing: 1.5rem; }
   .header {
     height: 95vh;
-    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); } }
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); } 
+  .urlForm-search {
+    flex-direction: row;
+  }
+  .urlForm__button-search {
+    margin-top: 0;
+    margin-left: 1rem;
+    padding: .85rem;
+  }
+  }
+

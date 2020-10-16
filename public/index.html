@@ -69,6 +69,43 @@
             </div>
         </div>
 
+        <div class="container__details">
+        <label for="search" class="urlForm__label">search <span class="heading-primary--main-green">database</span></label>
+        </div>
+        <div class="container__urlForm">
+                <form @submit.prevent="search()" class="urlForm-search">
+                <input class="urlForm__slug" v-model="searchfor" name="searchfor" id="searchfor" />
+                <button 
+                    type="submit"
+                    class="urlForm__button-search" 
+                    >
+                    search
+                </button>
+                </form>
+        </div>
+        <div v-if="searchOutcome" class="container__details">
+            <div class="container__details-text">
+                <p><span class="details-text--span">outcome:</span> {{searchOutcome}}</p>
+                
+                <table v-if="searchOutcome === 'Success!'" class="table__search">
+                    <thead>
+                        <tr>
+                            <th>slug</th>
+                            <th>url</th>
+                        </tr>
+                    </thead>
+                        <tr v-for="(match,i) in matches" :key="i">
+                            <td class="table__search-data">{{match.slug}}</td>
+                            <td class="table__search-data-url"><a class="table__link" v-bind:href="''">{{match.url}}</a></td>
+                        </tr>
+                </table>
+                    
+            
+            
+            </div>
+        </div>
+
+
     </main>
     <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>  
     <script src="app.js"></script>

@@ -4,8 +4,29 @@ const myUrl = require('../models/Url')
 const { nanoid } = require('nanoid')
 
 
-router.get('/url/:id', (req, res) => {
+router.get('/search/:searchfor', async (req, res) => {
     // TODO: get a short url by id
+    const searchTerm = await req.params.searchfor
+    console.log(searchTerm)
+    let idcheck = []
+    let urlmatches = []
+    let slugmatches = []
+    let matches = []
+    try {
+        
+        urlmatches = await myUrl.find({ url: new RegExp(searchTerm) }, 'slug url').exec()
+        idcheck = new Set(urlmatches.map((arr) => arr.id))
+        slugmatches = await myUrl.find({ slug: new RegExp(searchTerm) }, 'slug url').exec()
+        matches = [...urlmatches, ...slugmatches.filter((arr) => !idcheck.has(arr.id))]
+       
+        if (matches.length > 0) {
+            //console.log(matches)
+            return res.status(200).json(matches)
+        }
+        res.status(404).json({ msg: "search was empties..."})
+    } catch (error) {
+        res.status(500).json({ msg: error.message })
+    }
 })
 
 router.get('/:id', async (req, res) => {

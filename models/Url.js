@@ -25,6 +25,8 @@ const URLSchema = new mongoose.Schema({
             } 
         }
     }
+}, {
+    timestamps: true
 })
 
 const myUrl = mongoose.model('myUrl', URLSchema)
