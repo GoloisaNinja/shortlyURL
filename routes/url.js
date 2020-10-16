@@ -6,7 +6,8 @@ const { nanoid } = require('nanoid')
 
 router.get('/search/:searchfor', async (req, res) => {
     // TODO: get a short url by id
-    const searchTerm = await req.params.searchfor
+    const searchTerm = await req.params.searchfor.toLowerCase()
+    console.log(searchTerm)
     console.log(searchTerm)
     let idcheck = []
     let urlmatches = []
