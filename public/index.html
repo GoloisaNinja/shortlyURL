@@ -96,7 +96,7 @@
                     </thead>
                         <tr v-for="(match,i) in matches" :key="i">
                             <td class="table__search-data">{{match.slug}}</td>
-                            <td class="table__search-data-url"><a class="table__link" v-bind:href="''">{{match.url}}</a></td>
+                            <td class="table__search-data-url"><a class="table__link" v-bind:href="match.url">{{match.url}}</a></td>
                         </tr>
                 </table>
                     
