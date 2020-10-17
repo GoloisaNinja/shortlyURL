@@ -87,8 +87,8 @@ body {
 
 .urlForm__slug, .urlForm__url {
   background-color: #363636;
-  min-height: 4rem;
-  max-height: 4rem;
+  height: auto;
+  min-height: 4.5rem;
   border: none;
   border-bottom: 0.3rem solid #1d1d1d;
   font-size: 2rem;
@@ -219,7 +219,7 @@ td {
   .urlForm__button-search {
     margin-top: 0;
     margin-left: 1rem;
-    padding: .83rem;
+    
   }
   }
 
