@@ -71,7 +71,9 @@ body {
   font-weight: 500;
   font-size: 2rem;
   margin-top: 2rem;
-  padding: 1.15rem; }
+  padding: 1.15rem; 
+  border-radius: .5rem;
+}
 
 .urlForm__label {
   color: white;
@@ -95,6 +97,7 @@ body {
   color: white;
   padding-left: 1rem; 
   flex-grow: 1;
+  border-radius: .5rem;
 }
 
 .urlForm__button {
@@ -105,7 +108,9 @@ body {
   font-weight: 500;
   font-size: 2rem;
   margin-top: 2rem;
-  padding: 1.15rem; }
+  padding: 1.15rem; 
+  border-radius: .5rem;
+}
 
 .header {
   height: 75vh;
