@@ -111,6 +111,24 @@ body {
   padding: 1.15rem; 
   border-radius: .5rem;
 }
+.button__search {
+  padding-top: 2rem;
+  text-align: center;
+}
+.button__search-btn {
+  background: #1abd48;
+  border: none;
+  border-bottom: 0.3rem solid #117a2e;
+  color: white;
+  font-weight: 200;
+  font-size: 1.5rem;
+  padding: 1rem 1.5rem;
+  margin-right: 1rem;
+  border-radius: .5rem;
+}
+.button__search-btn:disabled {
+  opacity: .50;
+}
 
 .header {
   height: 75vh;

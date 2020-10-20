@@ -10,6 +10,8 @@ const reset = function initialState() {
         searchfor: null,
         matches: [],
         searchOutcome: null,
+        page: 1,
+        totalpages: null,
     }
 }
 
@@ -51,7 +53,7 @@ const app = new Vue({
     
         },
         async search() {
-            const response = await fetch(`/search/${this.searchfor}`, {
+            const response = await fetch(`/search?searchfor=${this.searchfor}&page=${this.page}`, {
                 method: 'GET',
                 headers: {
                     'content-type': 'application.json',
@@ -62,14 +64,25 @@ const app = new Vue({
             if(serverResp.msg) {
                 this.searchOutcome = serverResp.msg
                 this.matches = []
+                this.totalpages = null
             } else {
                 this.searchOutcome = 'Success!'
-                this.matches = serverResp
+                this.matches = serverResp.urlmatches
+                this.totalpages = serverResp.pages
             }
 
             this.searchfor = ''
+        },
+        nextPage() {
+            this.page += 1
+            this.search()
+        },
+        prevPage() {
+            if (this.page > 1) {
+                this.page -= 1
+                this.search()
+            }
         }
     }
 })
-
 

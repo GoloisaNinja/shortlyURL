@@ -4,24 +4,30 @@ const myUrl = require('../models/Url')
 const { nanoid } = require('nanoid')
 
 
-router.get('/search/:searchfor', async (req, res) => {
+router.get('/search', async (req, res) => {
     // TODO: get a short url by id
-    const searchTerm = await req.params.searchfor.toLowerCase()
-    console.log(searchTerm)
-    let idcheck = []
+    const searchTerm = await req.query.searchfor.toLowerCase()
+    const page = await parseInt(req.query.page)
+    console.log(page)
+    const pageSize = 5
+    const skip = (page - 1) * pageSize
     let urlmatches = []
-    let slugmatches = []
     let matches = []
     try {
-        
-        urlmatches = await myUrl.find({ url: new RegExp(searchTerm) }, 'slug url').exec()
-        idcheck = new Set(urlmatches.map((arr) => arr.id))
-        slugmatches = await myUrl.find({ slug: new RegExp(searchTerm) }, 'slug url').exec()
-        matches = [...urlmatches, ...slugmatches.filter((arr) => !idcheck.has(arr.id))]
+        totalrecords = await myUrl.find({ $or: [{ 
+            url: new RegExp(searchTerm) }, 
+            { slug: new RegExp(searchTerm) } ]}, 'slug url').countDocuments()
+        urlmatches = await myUrl.find({ $or: [{ 
+                url: new RegExp(searchTerm) }, 
+                { slug: new RegExp(searchTerm) } ]}, 'slug url')
+                .skip(skip)
+                .limit(pageSize)
+                .sort('-createdAt')
        
-        if (matches.length > 0) {
-            //console.log(matches)
-            return res.status(200).json(matches)
+        if (urlmatches.length > 0) {
+            console.log(totalrecords, pageSize)
+            const numPages = Math.ceil(totalrecords / pageSize)
+            return res.status(200).json({urlmatches, pages: numPages})
         }
         res.status(404).json({ msg: "search was empties..."})
     } catch (error) {

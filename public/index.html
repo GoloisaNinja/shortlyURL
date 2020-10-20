@@ -99,7 +99,18 @@
                             <td class="table__search-data-url"><a class="table__link" v-bind:href="match.url">{{match.url}}</a></td>
                         </tr>
                 </table>
-                    
+                    <div class="button__search" v-if="totalpages > 1">
+                        <button
+                            class="button__search-btn"
+                            :disabled="page === 1"
+                            @click="prevPage"
+                        ><</button>
+                        <button
+                            class="button__search-btn"
+                            :disabled="page === totalpages"
+                            @click="nextPage"
+                        >></button>
+                    </div>
             
             
             </div>
@@ -107,7 +118,7 @@
 
 
     </main>
-    <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>  
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
     <script src="app.js"></script>
     </body>
 </html>
