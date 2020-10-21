@@ -76,6 +76,8 @@
                 <form @submit.prevent="search()" class="urlForm-search">
                 <input class="urlForm__slug" v-model="searchfor" name="searchfor" id="searchfor" />
                 <button 
+                    v-model="newsearch"
+                    @click="newsearch = true"
                     type="submit"
                     class="urlForm__button-search" 
                     >
