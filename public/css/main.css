@@ -1,11 +1,13 @@
 * {
   padding: 0;
   margin: 0;
-  border-style: inherit; }
+  border-style: inherit;
+}
 
 a {
   text-decoration: none;
-  color: #5c5c5c; }
+  color: #5c5c5c;
+}
 
 .table__link {
   color: white;
@@ -14,25 +16,77 @@ a {
 }
 
 html {
-  font-size: 62.5%; }
+  font-size: 62.5%;
+}
 
 body {
   border-style: border-box;
   font-family: 'Red Hat Text', sans-serif;
   padding: 3rem;
-  background-color: #5c5c5c; }
+  background-color: #5c5c5c;
+}
+
+.myAbout {
+  position: fixed;
+  width: 2.5rem;
+  height: 2.5rem;
+  bottom: 3rem;
+  right: 4rem;
+  z-index: 99;
+  font-size: 2rem;
+  border: none;
+  outline: none;
+  background-color: #1abd48;
+  color: white;
+  cursor: pointer;
+  padding: 2.5rem 2.5rem;
+  border-radius: 50%;
+  opacity: 90%;
+  box-shadow: 0px 8px 6px -6px rgba(9, 83, 2, 0.644);
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+.myAbout:hover {
+  background-color: #333;
+  color: #1abd48;
+}
+
+.about__header {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+.about__text > p {
+  color: white;
+  font-size: 1.2rem;
+  padding-top: 0.3rem;
+  word-break: break-word;
+}
+.about__span {
+  color: #1abd48;
+  font-weight: 800;
+}
+.about__span-goodbye {
+  color: #1abd48;
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 800;
+}
 
 .container__details {
   display: flex;
   flex-direction: column;
   max-width: 45rem;
-  margin: 0 auto; }
+  margin: 0 auto;
+}
 
 .container__details-text > p {
   color: white;
   font-size: 2rem;
   padding-top: 1rem;
-  word-break: break-all; 
+  word-break: break-all;
 }
 
 .border-test {
@@ -40,27 +94,31 @@ body {
 }
 .details-text--span {
   font-weight: 400;
-  font-size: 1.5rem; }
+  font-size: 1.5rem;
+}
 
 .details-text--link {
   text-decoration: none;
-  color: #1abd48; }
+  color: #1abd48;
+}
 
 .container__urlForm {
   max-width: 45rem;
-  margin: 0 auto; }
+  margin: 0 auto;
+}
 
 .urlForm {
   display: flex;
   flex-direction: column;
   margin: 0;
-  justify-content: center; }
+  justify-content: center;
+}
 
 .urlForm-search {
   display: flex;
   flex-direction: column;
   margin: 0;
-  justify-content: center; 
+  justify-content: center;
 }
 
 .urlForm__button-search {
@@ -71,23 +129,26 @@ body {
   font-weight: 500;
   font-size: 2rem;
   margin-top: 2rem;
-  padding: 1.15rem; 
-  border-radius: .5rem;
+  padding: 1.15rem;
+  border-radius: 0.5rem;
 }
 
 .urlForm__label {
   color: white;
   font-weight: 500;
   font-size: 3.5rem;
-  padding: 0.60rem 0; }
+  padding: 0.6rem 0;
+}
 
 .urlForm__label-sub {
   color: white;
   font-weight: 400;
   font-size: 1.5rem;
-  padding: 0.60rem 1rem; }
+  padding: 0.6rem 1rem;
+}
 
-.urlForm__slug, .urlForm__url {
+.urlForm__slug,
+.urlForm__url {
   background-color: #363636;
   height: auto;
   min-height: 4.5rem;
@@ -95,9 +156,9 @@ body {
   border-bottom: 0.3rem solid #1d1d1d;
   font-size: 2rem;
   color: white;
-  padding-left: 1rem; 
+  padding-left: 1rem;
   flex-grow: 1;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
 }
 
 .urlForm__button {
@@ -108,8 +169,8 @@ body {
   font-weight: 500;
   font-size: 2rem;
   margin-top: 2rem;
-  padding: 1.15rem; 
-  border-radius: .5rem;
+  padding: 1.15rem;
+  border-radius: 0.5rem;
 }
 .button__search {
   padding-top: 2rem;
@@ -124,32 +185,40 @@ body {
   font-size: 1.5rem;
   padding: 1rem 1.5rem;
   margin-right: 1rem;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
 }
 .button__search-btn:disabled {
-  opacity: .50;
+  opacity: 0.5;
 }
 
 .header {
   height: 75vh;
-  background-image: linear-gradient(to right bottom, rgba(235, 235, 235, 0.2), rgba(166, 166, 166, 0.2)), url("https://i.imgur.com/8hpDRDO.jpg");
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(235, 235, 235, 0.2),
+      rgba(166, 166, 166, 0.2)
+    ),
+    url('https://i.imgur.com/8hpDRDO.jpg');
   background-size: cover;
   background-position: center;
   clip-path: polygon(0 0, 100% 0, 100% 70vh, 0 100%);
-  position: relative; }
+  position: relative;
+}
 
 .header__text-box {
   position: absolute;
   top: 33%;
   left: 52%;
   transform: translate(-50%, -50%);
-  text-align: center; }
+  text-align: center;
+}
 
 .heading-primary {
   color: #eee;
   text-transform: uppercase;
   backface-visibility: hidden;
-  margin-bottom: 6rem; }
+  margin-bottom: 6rem;
+}
 
 .heading-primary--main {
   display: block;
@@ -161,10 +230,12 @@ body {
   animation-timing-function: ease-out;
   /*  animation-delay: 3s; 
         animation-iteration-count: 3;
-    */ }
+    */
+}
 
 .heading-primary--main-green {
-  color: #1abd48; }
+  color: #1abd48;
+}
 
 .heading-primary--sub1 {
   display: block;
@@ -174,16 +245,18 @@ body {
   padding-bottom: 1.2rem;
   animation-name: moveInRight;
   animation-duration: 1s;
-  animation-timing-function: ease-out; }
+  animation-timing-function: ease-out;
+}
 
 .heading-primary--sub2 {
   display: block;
-  font-size: .75rem;
+  font-size: 0.75rem;
   font-weight: 400;
-  letter-spacing: .25rem;
+  letter-spacing: 0.25rem;
   animation-name: moveInLeft;
   animation-duration: 1s;
-  animation-timing-function: ease-out; }
+  animation-timing-function: ease-out;
+}
 
 .table__search {
   color: white;
@@ -193,7 +266,9 @@ body {
   border-collapse: collapse;
   margin-top: 1.5rem;
 }
-th, tr, td {
+th,
+tr,
+td {
   border: 3px solid #1abd48;
   border-collapse: collapse;
   padding: 1rem;
@@ -212,37 +287,45 @@ td {
 @keyframes moveInLeft {
   0% {
     opacity: 0;
-    transform: translateX(-10rem); }
+    transform: translateX(-10rem);
+  }
   80% {
-    transform: translate(1rem); }
+    transform: translate(1rem);
+  }
   100% {
     opacity: 1;
-    transform: translate(0); } }
+    transform: translate(0);
+  }
+}
 
 @keyframes moveInRight {
   0% {
     opacity: 0;
-    transform: translateX(10rem); }
+    transform: translateX(10rem);
+  }
   80% {
-    transform: translate(-1rem); }
+    transform: translate(-1rem);
+  }
   100% {
     opacity: 1;
-    transform: translate(0); } }
+    transform: translate(0);
+  }
+}
 
 @media (min-width: 45rem) {
   .heading-primary--main {
     font-size: 5rem;
-    letter-spacing: 1.5rem; }
+    letter-spacing: 1.5rem;
+  }
   .header {
     height: 95vh;
-    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); } 
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  }
   .urlForm-search {
     flex-direction: row;
   }
   .urlForm__button-search {
     margin-top: 0;
     margin-left: 1rem;
-    
   }
-  }
-
+}

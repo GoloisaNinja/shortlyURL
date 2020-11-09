@@ -1,126 +1,186 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>Shortly</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="url shortener ftw">
-        <meta name="keywords" content="HTML, CSS, SCSS, NodeJS, JavaScript, Vue.js">
-        <link rel="icon" type="image/png" href="/img/cdeathstar.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/img/cdeathstar.png" />
-        <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;500;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="css/main.css" />
-    </head>
-    <body>
-        <header class="header">
-        <div class="header__text-box">
-            <h1 class="heading-primary">
-                <span class="heading-primary--main">
-                shortly <span class="heading-primary--main-green">URL</span>
-                </span>
-                <span class="heading-primary--sub1">
-                simplify life
-                </span>
-                <span class="heading-primary--sub2">
-                one url at a time
-                </span>
-            </h1>
-        </div>
-        </header>
+  <head>
+    <meta charset="utf-8" />
+    <title>Shortly</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="url shortener ftw" />
+    <meta
+      name="keywords"
+      content="HTML, CSS, SCSS, NodeJS, JavaScript, Vue.js"
+    />
+    <link rel="icon" type="image/png" href="/img/cdeathstar.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/cdeathstar.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__text-box">
+        <h1 class="heading-primary">
+          <span class="heading-primary--main">
+            shortly <span class="heading-primary--main-green">URL</span>
+          </span>
+          <span class="heading-primary--sub1"> simplify life </span>
+          <span class="heading-primary--sub2"> one url at a time </span>
+        </h1>
+      </div>
+    </header>
     <main id="app">
-        <div class="container__urlForm">
-                <form @submit.prevent="createUrl()" class="urlForm">
-                <label for="slug" class="urlForm__label">enter <span class="heading-primary--main-green">slug</span><span class="urlForm__label-sub">(optional)</span></label>
-                <input class="urlForm__slug" v-model="slug" name="slug" id="slug" />
-                <label for="url" class="urlForm__label">enter <span class="heading-primary--main-green">url</span></label>
-                <input class="urlForm__slug" v-model="url" name="url" id="url" />
-                <button 
-                    type="submit"
-                    class="urlForm__button" 
-                    >
-                    create
-                </button>
-                </form>
-            </div>
-        <div v-if="existsorerror" class="container__details">
-            <div class="container__details-text">
-                <p>
-                    {{existsorerror}}
-                </p>
-            </div>
-        </div>
-        <div v-if="outcome" class="container__details">
-            <div class="container__details-text">
-                <p>
-                    <span class="details-text--span">outcome:</span> {{outcome}}
-                </p>
-                <p>
-                    <span class="details-text--span">desired slug:</span> {{respSlug}}
-                </p>
-                <p>
-                    <span class="details-text--span">url:</span> {{respUrl}}
-                </p>
-                <p>
-                    <span class="details-text--span">
-                    shortly url is: </span>
-                    <a class="details-text--link" href="http://www.fpd.pw" v-bind:href="respSlug">
-                    www.fpd.pw/{{respSlug}}</a>
-                </p>
-            </div>
-        </div>
+      <button
+        @click="showAbout"
+        class="myAbout"
+        title="About"
+        style="text-align: center"
+      >
+        <i class="fas fa-question" style="text-align: center"></i>
+      </button>
 
-        <div class="container__details">
-        <label for="search" class="urlForm__label">search <span class="heading-primary--main-green">database</span></label>
+      <div class="container__urlForm" id="topOfPage">
+        <form @submit.prevent="createUrl()" class="urlForm">
+          <label for="slug" class="urlForm__label"
+            >enter <span class="heading-primary--main-green">slug</span
+            ><span class="urlForm__label-sub">(optional)</span></label
+          >
+          <input class="urlForm__slug" v-model="slug" name="slug" id="slug" />
+          <label for="url" class="urlForm__label"
+            >enter <span class="heading-primary--main-green">url</span></label
+          >
+          <input class="urlForm__slug" v-model="url" name="url" id="url" />
+          <button type="submit" class="urlForm__button">create</button>
+        </form>
+      </div>
+      <div v-if="existsorerror" class="container__details">
+        <div class="container__details-text">
+          <p>{{existsorerror}}</p>
         </div>
-        <div class="container__urlForm">
-                <form @submit.prevent="search()" class="urlForm-search">
-                <input class="urlForm__slug" v-model="searchfor" name="searchfor" id="searchfor" />
-                <button 
-                    v-model="newsearch"
-                    @click="newsearch = true"
-                    type="submit"
-                    class="urlForm__button-search" 
-                    >
-                    search
-                </button>
-                </form>
+      </div>
+      <div v-if="outcome" class="container__details">
+        <div class="container__details-text">
+          <p><span class="details-text--span">outcome:</span> {{outcome}}</p>
+          <p>
+            <span class="details-text--span">desired slug:</span> {{respSlug}}
+          </p>
+          <p><span class="details-text--span">url:</span> {{respUrl}}</p>
+          <p>
+            <span class="details-text--span"> shortly url is: </span>
+            <a
+              class="details-text--link"
+              href="http://www.fpd.pw"
+              v-bind:href="respSlug"
+            >
+              www.fpd.pw/{{respSlug}}</a
+            >
+          </p>
         </div>
-        <div v-if="searchOutcome" class="container__details">
-            <div class="container__details-text">
-                <p><span class="details-text--span">outcome:</span> {{searchOutcome}}</p>
-                
-                <table v-if="searchOutcome === 'Success!'" class="table__search">
-                    <thead>
-                        <tr>
-                            <th>slug</th>
-                            <th>url</th>
-                        </tr>
-                    </thead>
-                        <tr v-for="(match,i) in matches" :key="i">
-                            <td class="table__search-data">{{match.slug}}</td>
-                            <td class="table__search-data-url"><a class="table__link" v-bind:href="match.url">{{match.url}}</a></td>
-                        </tr>
-                </table>
-                    <div class="button__search" v-if="totalpages > 1">
-                        <button
-                            class="button__search-btn"
-                            :disabled="page === 1"
-                            @click="prevPage"
-                        ><</button>
-                        <button
-                            class="button__search-btn"
-                            :disabled="page === totalpages"
-                            @click="nextPage"
-                        >></button>
-                    </div>
-            
-            
-            </div>
-        </div>
+      </div>
 
+      <div class="container__details">
+        <label for="search" class="urlForm__label"
+          >search
+          <span class="heading-primary--main-green">database</span></label
+        >
+      </div>
+      <div class="container__urlForm">
+        <form @submit.prevent="search()" class="urlForm-search">
+          <input
+            class="urlForm__slug"
+            v-model="searchfor"
+            name="searchfor"
+            id="searchfor"
+          />
+          <button
+            v-model="newsearch"
+            @click="newsearch = true"
+            type="submit"
+            class="urlForm__button-search"
+          >
+            search
+          </button>
+        </form>
+      </div>
+      <div v-if="searchOutcome" class="container__details">
+        <div class="container__details-text">
+          <p>
+            <span class="details-text--span">outcome:</span> {{searchOutcome}}
+          </p>
 
+          <table v-if="searchOutcome === 'Success!'" class="table__search">
+            <thead>
+              <tr>
+                <th>slug</th>
+                <th>url</th>
+              </tr>
+            </thead>
+            <tr v-for="(match,i) in matches" :key="i">
+              <td class="table__search-data">{{match.slug}}</td>
+              <td class="table__search-data-url">
+                <a class="table__link" v-bind:href="match.url">{{match.url}}</a>
+              </td>
+            </tr>
+          </table>
+          <div class="button__search" v-if="totalpages > 1">
+            <button
+              class="button__search-btn"
+              :disabled="page === 1"
+              @click="prevPage"
+            >
+              <
+            </button>
+            <button
+              class="button__search-btn"
+              :disabled="page === totalpages"
+              @click="nextPage"
+            >
+              >
+            </button>
+          </div>
+        </div>
+      </div>
+      <div v-if="about" class="container__details" id="myAboutDiv">
+        <div class="about__header">
+          <p class="urlForm__label">
+            about <span class="heading-primary--main-green">shortly</span>
+          </p>
+          <div class="about__text">
+            <p>
+              Shortly is a URL shortener and was designed to allow you to create
+              custom "slugs" for quick and easy access to sites that might have
+              complex URL's. Consider the following example:
+              <span class="about__span"
+                >https://www.extremeexample.com/searchapi/locations/userdata/?locationzip=11110&userData=user1.</span
+              >
+              Pretty long URL right? Consider that this URL might be an endpoint
+              for data you want to retrieve, or simply a URL you find you visit
+              often. With Shortly, you can choose a "slug" or a short nickname
+              to associate with this URL. Let's say you choose "ex" as your
+              slug. Assuming that slug is available in our database, going
+              forward, you may access that endpoint or site by typing
+              <span class="about__span">http://www.fpd.pw/ex</span> into the
+              address bar of your browser. Now you have a much shorter and
+              cleaner URL by which you can access that site. Pretty cool right?
+              Shortly has been designed using a Vue.js frontend and Node.js
+              backend with a MongoDB database. All code was written by me, Jon
+              Collins, and this site is considered to be a hobby project. Slug
+              availability and retention is not guaranteed. All code is public
+              and can viewed at my github repo located at
+              <span class="about__span">http://www.fpd.pw/shortly</span>
+            </p>
+            <span class="about__span-goodbye"
+              ><h4>Thank you for visting Shortly!</h4></span
+            >
+          </div>
+        </div>
+      </div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
     <script src="app.js"></script>
-    </body>
+  </body>
 </html>
