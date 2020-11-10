@@ -74,7 +74,7 @@ const app = new Vue({
         this.page = 1;
       }
       const response = await fetch(
-        `/search?searchfor=${this.searchfor}&page=${this.page}`,
+        `/api/search?searchfor=${this.searchfor}&page=${this.page}`,
         {
           method: 'GET',
           headers: {

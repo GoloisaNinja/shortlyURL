@@ -3,8 +3,8 @@ const router = express.Router();
 const myUrl = require('../models/Url');
 const { nanoid } = require('nanoid');
 
-router.get('/search', async (req, res) => {
-  // TODO: get a short url by id
+router.get('/api/search', async (req, res) => {
+  // TODO: search database based on user search term
   const searchTerm = await req.query.searchfor.toLowerCase().trim();
   const page = await parseInt(req.query.page);
   console.log(page);
