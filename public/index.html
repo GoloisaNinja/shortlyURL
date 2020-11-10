@@ -22,26 +22,26 @@
     <link rel="stylesheet" type="text/css" href="css/main.css" />
   </head>
   <body>
-    <header class="header">
-      <div class="header__text-box">
-        <h1 class="heading-primary">
-          <span class="heading-primary--main">
-            shortly <span class="heading-primary--main-green">URL</span>
-          </span>
-          <span class="heading-primary--sub1"> simplify life </span>
-          <span class="heading-primary--sub2"> one url at a time </span>
-        </h1>
-      </div>
-    </header>
     <main id="app">
-      <button
-        @click="showAbout"
-        class="myAbout"
-        title="About"
-        style="text-align: center"
-      >
-        <i class="fas fa-question" style="text-align: center"></i>
-      </button>
+      <header class="header">
+        <div class="header__about">
+          <button class="btn-about" @click="showAbout">
+            <span class="green-span"
+              ><i class="fas fa-angle-double-down"></i
+            ></span>
+            about
+          </button>
+        </div>
+        <div class="header__text-box">
+          <h1 class="heading-primary">
+            <span class="heading-primary--main">
+              shortly <span class="heading-primary--main-green">URL</span>
+            </span>
+            <span class="heading-primary--sub1"> simplify life </span>
+            <span class="heading-primary--sub2"> one url at a time </span>
+          </h1>
+        </div>
+      </header>
 
       <div class="container__urlForm" id="topOfPage">
         <form @submit.prevent="createUrl()" class="urlForm">
