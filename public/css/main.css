@@ -22,7 +22,7 @@ html {
 body {
   border-style: border-box;
   font-family: 'Red Hat Text', sans-serif;
-  padding: 3rem;
+  padding: 2rem;
   background-color: #5c5c5c;
 }
 .btn-about {
@@ -211,7 +211,7 @@ body {
 }
 .header__text-box {
   position: absolute;
-  top: 33%;
+  top: 35%;
   left: 52%;
   transform: translate(-50%, -50%);
   text-align: center;
@@ -339,5 +339,12 @@ td {
   .urlForm__button-search {
     margin-top: 0;
     margin-left: 1rem;
+  }
+  .header__about {
+    justify-content: right;
+    text-align: right;
+  }
+  body {
+    padding: 3.5rem;
   }
 }
