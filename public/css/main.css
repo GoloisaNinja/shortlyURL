@@ -82,7 +82,7 @@ body {
   color: white;
   font-size: 2rem;
   padding-top: 1rem;
-  word-break: break-all;
+  word-break: break-word;
 }
 
 .border-test {
