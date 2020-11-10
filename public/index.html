@@ -165,11 +165,15 @@
 
             <p>
               Pretty long URL right? Consider that this URL might be an endpoint
-              for data you want to retrieve, or simply a URL you find you visit
+              for data you want to retrieve, or simply a URL you have type out
               often. With Shortly, you can choose a "slug" or a short nickname
-              to associate with this URL. Let's say you choose "ex" as your
-              slug. Assuming that slug is available in our database, going
-              forward, you may access that endpoint or site by typing:
+              to associate with this URL. Let's say you choose "ex" as your slug
+              or nickname for the above example url. You would enter this
+              nickname into the slug field and then enter the url into the url
+              field. Assuming the slug is available in our database, the slug
+              "ex" will now be created and tied to the above example url in our
+              database. This means that going forward, you could reach that url
+              by simply typing:
             </p>
             <p style="text-align: center">
               <span class="about__span">http://www.fpd.pw/ex</span>
@@ -177,12 +181,27 @@
             <p>
               into the address bar of your browser. Now you have a much shorter
               and cleaner URL by which you can access that site. Pretty cool
-              right? Shortly has been designed using a Vue.js frontend and
-              Node.js backend with a MongoDB database. Site design and code were
-              created and written by me, Jon Collins. At this time, the site is
-              purely a hobby project and being used for developer portfolio
-              purposes. Slug availability and retention is not guaranteed. All
-              code is public and can viewed at my github repo located at:
+              right? Please note you have the ability to search the database for
+              slugs, or nicknames before you try to create a short url. This way
+              you can see if your desired slug is already taken or available for
+              use. Additionally, please note that a slug, or nickname is not
+              required, only a url is needed. Should you decide not to choose
+              your own slug, a randomized 5 character slug will be automatically
+              generated for you. Just be aware, these randomized slugs are
+              usually not as easy to remember comparatively to something you
+              would choose yourself. Finally, please note that slugs cannot
+              contain most special characters as these are often a part of
+              standard urls and query strings. Allowing them would potentially
+              cause problems with re-direction.
+            </p>
+            <br />
+            <p>
+              Shortly was designed using a Vue.js frontend and Node.js backend
+              with a MongoDB database. Site design and code were created and
+              written by me, Jon Collins. At this time, the site is purely a
+              hobby project and being used for developer portfolio purposes.
+              Slug availability and retention is not guaranteed. All code is
+              public and can viewed at my github repo located at:
             </p>
             <p style="text-align: center">
               <a href="http://www.fpd.pw/shortly"
