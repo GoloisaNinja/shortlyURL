@@ -39,7 +39,16 @@ body {
   animation-duration: 2s;
   animation-iteration-count: infinite;
 }
-
+.btn-about__dismiss {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  cursor: pointer;
+}
 .about__header {
   display: flex;
   flex-direction: column;
@@ -118,6 +127,7 @@ body {
   margin-top: 2rem;
   padding: 1.15rem;
   border-radius: 0.5rem;
+  cursor: pointer;
 }
 
 .urlForm__label {
@@ -158,6 +168,8 @@ body {
   margin-top: 2rem;
   padding: 1.15rem;
   border-radius: 0.5rem;
+  width: 100%;
+  cursor: pointer;
 }
 .button__search {
   padding-top: 2rem;
@@ -173,6 +185,7 @@ body {
   padding: 1rem 1.5rem;
   margin-right: 1rem;
   border-radius: 0.5rem;
+  cursor: pointer;
 }
 .button__search-btn:disabled {
   opacity: 0.5;
@@ -192,8 +205,8 @@ body {
   position: relative;
 }
 .header__about {
-  justify-content: right;
-  text-align: right;
+  justify-content: center;
+  text-align: center;
   padding: 2rem 3rem;
 }
 .header__text-box {

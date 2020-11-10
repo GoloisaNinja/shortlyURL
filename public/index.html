@@ -154,28 +154,52 @@
               Shortly is a URL shortener and was designed to allow you to create
               custom "slugs" for quick and easy access to sites that might have
               complex URL's. Consider the following example:
+            </p>
+            <p style="text-align: center">
               <span class="about__span"
-                >https://www.extremeexample.com/searchapi/locations/userdata/?locationzip=11110&userData=user1.</span
+                >https://www.extremeexample.com/searchapi/locations/userdata/?locationzip=11110&userData=user1</span
               >
+            </p>
+
+            <p>
               Pretty long URL right? Consider that this URL might be an endpoint
               for data you want to retrieve, or simply a URL you find you visit
               often. With Shortly, you can choose a "slug" or a short nickname
               to associate with this URL. Let's say you choose "ex" as your
               slug. Assuming that slug is available in our database, going
-              forward, you may access that endpoint or site by typing
-              <span class="about__span">http://www.fpd.pw/ex</span> into the
-              address bar of your browser. Now you have a much shorter and
-              cleaner URL by which you can access that site. Pretty cool right?
-              Shortly has been designed using a Vue.js frontend and Node.js
-              backend with a MongoDB database. All code was written by me, Jon
-              Collins, and this site is considered to be a hobby project. Slug
-              availability and retention is not guaranteed. All code is public
-              and can viewed at my github repo located at
-              <span class="about__span">http://www.fpd.pw/shortly</span>
+              forward, you may access that endpoint or site by typing:
             </p>
+            <p style="text-align: center">
+              <span class="about__span">http://www.fpd.pw/ex</span>
+            </p>
+            <p>
+              into the address bar of your browser. Now you have a much shorter
+              and cleaner URL by which you can access that site. Pretty cool
+              right? Shortly has been designed using a Vue.js frontend and
+              Node.js backend with a MongoDB database. Site design and code were
+              created and written by me, Jon Collins. At this time, the site is
+              purely a hobby project and being used for developer portfolio
+              purposes. Slug availability and retention is not guaranteed. All
+              code is public and can viewed at my github repo located at:
+            </p>
+            <p style="text-align: center">
+              <a href="http://www.fpd.pw/shortly"
+                ><span class="about__span" style="text-align: center"
+                  >http://www.fpd.pw/shortly</span
+                ></a
+              >
+            </p>
+
             <span class="about__span-goodbye"
               ><h4>Thank you for visting Shortly!</h4></span
             >
+
+            <button @click="showAbout" class="btn-about__dismiss">
+              <span class="green-span"
+                ><i class="fas fa-window-close"></i
+              ></span>
+              dismiss
+            </button>
           </div>
         </div>
       </div>
