@@ -1,231 +1,240 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Shortly</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="url shortener ftw" />
-    <meta
-      name="keywords"
-      content="HTML, CSS, SCSS, NodeJS, JavaScript, Vue.js"
-    />
-    <link rel="icon" type="image/png" href="/img/cdeathstar.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/img/cdeathstar.png" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" type="text/css" href="css/main.css" />
-  </head>
-  <body>
-    <main id="app">
-      <header class="header">
-        <div class="header__about">
-          <button class="btn-about" @click="showAbout">
-            <span class="green-span"
-              ><i class="fas fa-angle-double-down"></i
-            ></span>
-            about
-          </button>
-        </div>
-        <div class="header__text-box">
-          <h1 class="heading-primary">
-            <span class="heading-primary--main">
-              shortly <span class="heading-primary--main-green">URL</span>
-            </span>
-            <span class="heading-primary--sub1"> simplify life </span>
-            <span class="heading-primary--sub2"> one url at a time </span>
-          </h1>
-        </div>
-      </header>
+	<head>
+		<meta charset="utf-8" />
+		<title>Shortly</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content="url shortener ftw" />
+		<meta
+			name="keywords"
+			content="HTML, CSS, SCSS, NodeJS, JavaScript, Vue.js"
+		/>
+		<link rel="icon" type="image/png" href="/img/cdeathstar.png" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/img/cdeathstar.png" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;500;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+	</head>
+	<body>
+		<main id="app">
+			<header class="header">
+				<div class="header__about">
+					<button class="btn-about" @click="showAbout">
+						<span class="green-span"
+							><i class="fas fa-angle-double-down"></i
+						></span>
+						about
+					</button>
+				</div>
+				<div class="header__text-box">
+					<h1 class="heading-primary">
+						<span class="heading-primary--main">
+							shortly <span class="heading-primary--main-green">URL</span>
+						</span>
+						<span class="heading-primary--sub1"> simplify life </span>
+						<span class="heading-primary--sub2"> one url at a time </span>
+					</h1>
+				</div>
+			</header>
 
-      <div class="container__urlForm" id="topOfPage">
-        <form @submit.prevent="createUrl()" class="urlForm">
-          <label for="slug" class="urlForm__label"
-            >enter <span class="heading-primary--main-green">slug</span
-            ><span class="urlForm__label-sub">(optional)</span></label
-          >
-          <input class="urlForm__slug" v-model="slug" name="slug" id="slug" />
-          <label for="url" class="urlForm__label"
-            >enter <span class="heading-primary--main-green">url</span></label
-          >
-          <input class="urlForm__slug" v-model="url" name="url" id="url" />
-          <button type="submit" class="urlForm__button">create</button>
-        </form>
-      </div>
-      <div v-if="existsorerror" class="container__details">
-        <div class="container__details-text">
-          <p>{{existsorerror}}</p>
-        </div>
-      </div>
-      <div v-if="outcome" class="container__details">
-        <div class="container__details-text">
-          <p><span class="details-text--span">outcome:</span> {{outcome}}</p>
-          <p>
-            <span class="details-text--span">desired slug:</span> {{respSlug}}
-          </p>
-          <p style="word-break: break-all">
-            <span class="details-text--span">url:</span> {{respUrl}}
-          </p>
-          <p>
-            <span class="details-text--span"> shortly url is: </span>
-            <a
-              class="details-text--link"
-              href="http://www.fpd.pw"
-              v-bind:href="respSlug"
-            >
-              www.fpd.pw/{{respSlug}}</a
-            >
-          </p>
-        </div>
-      </div>
+			<div class="container__urlForm" id="topOfPage">
+				<form @submit.prevent="createUrl()" class="urlForm">
+					<label for="slug" class="urlForm__label"
+						>enter <span class="heading-primary--main-green">slug</span
+						><span class="urlForm__label-sub">(optional)</span></label
+					>
+					<input class="urlForm__slug" v-model="slug" name="slug" id="slug" />
+					<label for="url" class="urlForm__label"
+						>enter <span class="heading-primary--main-green">url</span></label
+					>
+					<input class="urlForm__slug" v-model="url" name="url" id="url" />
+					<button type="submit" class="urlForm__button">create</button>
+				</form>
+			</div>
+			<div v-if="existsorerror" class="container__details">
+				<div class="container__details-text">
+					<p>{{existsorerror}}</p>
+				</div>
+			</div>
+			<div v-if="outcome" class="container__details">
+				<div class="container__details-text">
+					<p><span class="details-text--span">outcome:</span> {{outcome}}</p>
+					<p>
+						<span class="details-text--span">desired slug:</span> {{respSlug}}
+					</p>
+					<p style="word-break: break-all">
+						<span class="details-text--span">url:</span> {{respUrl}}
+					</p>
+					<p>
+						<span class="details-text--span"> shortly url is: </span>
+						<a
+							v-bind:data-route="'https://fpd.pw/' + respSlug"
+							id="urlLink"
+							class="details-text--link"
+							href="http://www.fpd.pw"
+							v-bind:href="respSlug"
+						>
+							https://fpd.pw/{{respSlug}}</a
+						>
+					</p>
+					<button
+						id="clipboardBtn"
+						class="urlForm__button"
+						@click="copyToClipboard"
+					>
+						copy url
+					</button>
+				</div>
+			</div>
 
-      <div class="container__details">
-        <label for="search" class="urlForm__label"
-          >search
-          <span class="heading-primary--main-green">database</span></label
-        >
-      </div>
-      <div class="container__urlForm">
-        <form @submit.prevent="search()" class="urlForm-search">
-          <input
-            class="urlForm__slug"
-            v-model="searchfor"
-            name="searchfor"
-            id="searchfor"
-          />
-          <button
-            v-model="newsearch"
-            @click="newsearch = true"
-            type="submit"
-            class="urlForm__button-search"
-          >
-            search
-          </button>
-        </form>
-      </div>
-      <div v-if="searchOutcome" class="container__details">
-        <div class="container__details-text">
-          <p>
-            <span class="details-text--span">outcome:</span> {{searchOutcome}}
-          </p>
+			<div class="container__details">
+				<label for="search" class="urlForm__label"
+					>search
+					<span class="heading-primary--main-green">database</span></label
+				>
+			</div>
+			<div class="container__urlForm">
+				<form @submit.prevent="search()" class="urlForm-search">
+					<input
+						class="urlForm__slug"
+						v-model="searchfor"
+						name="searchfor"
+						id="searchfor"
+					/>
+					<button
+						v-model="newsearch"
+						@click="newsearch = true"
+						type="submit"
+						class="urlForm__button-search"
+					>
+						search
+					</button>
+				</form>
+			</div>
+			<div v-if="searchOutcome" class="container__details">
+				<div class="container__details-text">
+					<p>
+						<span class="details-text--span">outcome:</span> {{searchOutcome}}
+					</p>
 
-          <table v-if="searchOutcome === 'Success!'" class="table__search">
-            <thead>
-              <tr>
-                <th>slug</th>
-                <th>url</th>
-              </tr>
-            </thead>
-            <tr v-for="(match,i) in matches" :key="i">
-              <td class="table__search-data">{{match.slug}}</td>
-              <td class="table__search-data-url">
-                <a class="table__link" v-bind:href="match.url">{{match.url}}</a>
-              </td>
-            </tr>
-          </table>
-          <div class="button__search" v-if="totalpages > 1">
-            <button
-              class="button__search-btn"
-              :disabled="page === 1"
-              @click="prevPage"
-            >
-              <
-            </button>
-            <button
-              class="button__search-btn"
-              :disabled="page === totalpages"
-              @click="nextPage"
-            >
-              >
-            </button>
-          </div>
-        </div>
-      </div>
-      <div v-if="about" class="container__details" id="myAboutDiv">
-        <div class="about__header">
-          <p class="urlForm__label">
-            about <span class="heading-primary--main-green">shortly</span>
-          </p>
-          <div class="about__text">
-            <p>
-              Shortly is a URL shortener and was designed to allow you to create
-              custom "slugs" for quick and easy access to sites that might have
-              complex URL's. Consider the following example:
-            </p>
-            <p style="text-align: center">
-              <span class="about__span"
-                >https://www.extremeexample.com/searchapi/locations/userdata/?locationzip=11110&userData=user1</span
-              >
-            </p>
+					<table v-if="searchOutcome === 'Success!'" class="table__search">
+						<thead>
+							<tr>
+								<th>slug</th>
+								<th>url</th>
+							</tr>
+						</thead>
+						<tr v-for="(match,i) in matches" :key="i">
+							<td class="table__search-data">{{match.slug}}</td>
+							<td class="table__search-data-url">
+								<a class="table__link" v-bind:href="match.url">{{match.url}}</a>
+							</td>
+						</tr>
+					</table>
+					<div class="button__search" v-if="totalpages > 1">
+						<button
+							class="button__search-btn"
+							:disabled="page === 1"
+							@click="prevPage"
+						>
+							<
+						</button>
+						<button
+							class="button__search-btn"
+							:disabled="page === totalpages"
+							@click="nextPage"
+						>
+							>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div v-if="about" class="container__details" id="myAboutDiv">
+				<div class="about__header">
+					<p class="urlForm__label">
+						about <span class="heading-primary--main-green">shortly</span>
+					</p>
+					<div class="about__text">
+						<p>
+							Shortly is a URL shortener and was designed to allow you to create
+							custom "slugs" for quick and easy access to sites that might have
+							complex URL's. Consider the following example:
+						</p>
+						<p style="text-align: center">
+							<span class="about__span"
+								>https://www.extremeexample.com/searchapi/locations/userdata/?locationzip=11110&userData=user1</span
+							>
+						</p>
 
-            <p>
-              Pretty long URL right? Consider that this URL might be an endpoint
-              for data you want to retrieve, or simply a URL you have type out
-              often. With Shortly, you can choose a "slug" or a short nickname
-              to associate with this URL. Let's say you choose "ex" as your slug
-              or nickname for the above example url. You would enter this
-              nickname into the slug field and then enter the url into the url
-              field. Assuming the slug is available in our database, the slug
-              "ex" will now be created and tied to the above example url in our
-              database. This means that going forward, you could reach that url
-              by simply typing:
-            </p>
-            <p style="text-align: center">
-              <span class="about__span">http://www.fpd.pw/ex</span>
-            </p>
-            <p>
-              into the address bar of your browser. Now you have a much shorter
-              and cleaner URL by which you can access that site. Pretty cool
-              right? Please note you have the ability to search the database for
-              slugs, or nicknames before you try to create a short url. This way
-              you can see if your desired slug is already taken or available for
-              use. Additionally, please note that a slug, or nickname is not
-              required, only a url is needed. Should you decide not to choose
-              your own slug, a randomized 5 character slug will be automatically
-              generated for you. Just be aware, these randomized slugs are
-              usually not as easy to remember comparatively to something you
-              would choose yourself. Finally, please note that slugs cannot
-              contain most special characters as these are often a part of
-              standard urls and query strings. Allowing them would potentially
-              cause problems with re-direction.
-            </p>
-            <br />
-            <p>
-              Shortly was designed using a Vue.js frontend and Node.js backend
-              with a MongoDB database. Site design and code were created and
-              written by me, Jon Collins. At this time, the site is purely a
-              hobby project and being used for developer portfolio purposes.
-              Slug availability and retention is not guaranteed. All code is
-              public and can viewed at my github repo located at:
-            </p>
-            <p style="text-align: center">
-              <a href="http://www.fpd.pw/shortly"
-                ><span class="about__span" style="text-align: center"
-                  >http://www.fpd.pw/shortly</span
-                ></a
-              >
-            </p>
+						<p>
+							Pretty long URL right? Consider that this URL might be an endpoint
+							for data you want to retrieve, or simply a URL you have type out
+							often. With Shortly, you can choose a "slug" or a short nickname
+							to associate with this URL. Let's say you choose "ex" as your slug
+							or nickname for the above example url. You would enter this
+							nickname into the slug field and then enter the url into the url
+							field. Assuming the slug is available in our database, the slug
+							"ex" will now be created and tied to the above example url in our
+							database. This means that going forward, you could reach that url
+							by simply typing:
+						</p>
+						<p style="text-align: center">
+							<span class="about__span">http://www.fpd.pw/ex</span>
+						</p>
+						<p>
+							into the address bar of your browser. Now you have a much shorter
+							and cleaner URL by which you can access that site. Pretty cool
+							right? Please note you have the ability to search the database for
+							slugs, or nicknames before you try to create a short url. This way
+							you can see if your desired slug is already taken or available for
+							use. Additionally, please note that a slug, or nickname is not
+							required, only a url is needed. Should you decide not to choose
+							your own slug, a randomized 5 character slug will be automatically
+							generated for you. Just be aware, these randomized slugs are
+							usually not as easy to remember comparatively to something you
+							would choose yourself. Finally, please note that slugs cannot
+							contain most special characters as these are often a part of
+							standard urls and query strings. Allowing them would potentially
+							cause problems with re-direction.
+						</p>
+						<br />
+						<p>
+							Shortly was designed using a Vue.js frontend and Node.js backend
+							with a MongoDB database. Site design and code were created and
+							written by me, Jon Collins. At this time, the site is purely a
+							hobby project and being used for developer portfolio purposes.
+							Slug availability and retention is not guaranteed. All code is
+							public and can viewed at my github repo located at:
+						</p>
+						<p style="text-align: center">
+							<a href="http://www.fpd.pw/shortly"
+								><span class="about__span" style="text-align: center"
+									>http://www.fpd.pw/shortly</span
+								></a
+							>
+						</p>
 
-            <span class="about__span-goodbye"
-              ><h4>Thank you for visting Shortly!</h4></span
-            >
+						<span class="about__span-goodbye"
+							><h4>Thank you for visting Shortly!</h4></span
+						>
 
-            <button @click="showAbout" class="btn-about__dismiss">
-              <span class="green-span"
-                ><i class="fas fa-window-close"></i
-              ></span>
-              dismiss
-            </button>
-          </div>
-        </div>
-      </div>
-    </main>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
-    <script src="app.js"></script>
-  </body>
+						<button @click="showAbout" class="btn-about__dismiss">
+							<span class="green-span"
+								><i class="fas fa-window-close"></i
+							></span>
+							dismiss
+						</button>
+					</div>
+				</div>
+			</div>
+		</main>
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+		<script src="app.js"></script>
+	</body>
 </html>
