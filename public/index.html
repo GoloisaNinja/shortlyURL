@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>Shortly</title>
+		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="description" content="url shortener ftw" />
 		<meta
@@ -54,7 +55,20 @@
 						>enter <span class="heading-primary--main-green">url</span></label
 					>
 					<input class="urlForm__slug" v-model="url" name="url" id="url" />
-					<button type="submit" class="urlForm__button">create</button>
+					<button
+						id="create-btn"
+						type="submit"
+						aria-disabled="true"
+						class="urlForm__button"
+					>
+						create
+					</button>
+					<div
+						class="g-recaptcha"
+						data-sitekey="6Leg71YgAAAAAEd0oQ0JV03bIDnKcN99xAwOCVg5"
+						data-callback="onreCaptchaSuccess"
+						data-expired-callback="onreCaptchaExpire"
+					></div>
 				</form>
 			</div>
 			<div v-if="existsorerror" class="container__details">
@@ -236,5 +250,13 @@
 		</main>
 		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
 		<script src="app.js"></script>
+		<script>
+			function onreCaptchaSuccess() {
+				document.getElementById('create-btn').ariaDisabled = 'false';
+			}
+			function onreCaptchaExpire() {
+				document.getElementById('create-btn').ariaDisabled = 'true';
+			}
+		</script>
 	</body>
 </html>

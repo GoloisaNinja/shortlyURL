@@ -76,6 +76,7 @@ const app = new Vue({
 
 			this.slug = '';
 			this.url = '';
+			document.getElementById('create-btn').ariaDisabled = true;
 			const clipboardBtn = document.getElementById('clipboardBtn');
 			clipboardBtn.innerHTML = 'copy url';
 		},
