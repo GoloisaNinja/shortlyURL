@@ -13,6 +13,7 @@ const reset = function initialState() {
 		totalpages: null,
 		newsearch: true,
 		about: false,
+		isSubmitting: false,
 	};
 };
 
@@ -32,6 +33,9 @@ const app = new Vue({
 			const clipboardBtn = document.getElementById('clipboardBtn');
 			navigator.clipboard.writeText(urlDataToCopy).then(() => {
 				clipboardBtn.innerHTML = 'copied!';
+				setTimeout(() => {
+					clipboardBtn.innerHTML = 'copy url';
+				}, 3000);
 			});
 		},
 		scrollToAbout() {
@@ -48,6 +52,13 @@ const app = new Vue({
 			}
 		},
 		async createUrl() {
+			const isDisabled =
+				document.getElementById('create-btn').getAttribute('aria-disabled') ===
+				'true';
+			if (isDisabled || this.isSubmitting) {
+				return;
+			}
+			this.isSubmitting = true;
 			const response = await fetch('/url', {
 				method: 'POST',
 				headers: {
@@ -77,8 +88,9 @@ const app = new Vue({
 			this.slug = '';
 			this.url = '';
 			document.getElementById('create-btn').ariaDisabled = true;
-			const clipboardBtn = document.getElementById('clipboardBtn');
-			clipboardBtn.innerHTML = 'copy url';
+			this.isSubmitting = false;
+			// const clipboardBtn = document.getElementById('clipboardBtn');
+			// clipboardBtn.innerHTML = 'copy url';
 		},
 		async search() {
 			if (this.newsearch) {
